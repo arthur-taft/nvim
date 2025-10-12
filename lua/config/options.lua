@@ -1,0 +1,13 @@
+local o, wo = vim.o, vim.wo
+o.termguicolors = true
+o.number = true
+wo.signcolumn = "yes"
+o.expandtab = true
+o.shiftwidth = 2
+o.tabstop = 2
+o.ignorecase = true
+o.smartcase = true
+o.clipboard = "unnamedplus"
+o.updatetime = 250
+o.splitbelow = true
+o.splitright = true

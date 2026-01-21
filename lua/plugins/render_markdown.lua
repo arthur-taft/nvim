@@ -16,9 +16,6 @@ return {
 					vim.cmd("wincmd l")
 					vim.api.nvim_win_set_buf(0, cur)
 
-					-- Optional: fix the width of the preview pane (comment out if not desired)
-					-- vim.cmd("vertical resize 88")
-
 					require("render-markdown").enable() -- enable only in the right window
 				end,
 				desc = "Markdown: open rendered view (right split)",

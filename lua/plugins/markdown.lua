@@ -23,7 +23,6 @@ return {
 				buffer = 0, -- current markdown buffer only
 				once = true, -- run once per buffer
 				callback = function()
-					-- comment this out if you prefer manual toggle only
 					-- require("config.md_preview").toggle()
 				end,
 			})

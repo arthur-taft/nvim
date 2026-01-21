@@ -13,7 +13,6 @@ return {
 					buftype = { "terminal" },
 				},
 			},
-			-- remove the `highlights = ...` block entirely
 		},
 	},
 }

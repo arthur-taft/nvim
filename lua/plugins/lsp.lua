@@ -14,6 +14,8 @@ return {
 				"dockerls",
 				"yamlls",
 				"marksman",
+				"ts_ls",
+				"html",
 			},
 			-- v2 can auto-enable; installation still happens via Mason
 			automatic_enable = true,
@@ -55,6 +57,8 @@ return {
 			vim.lsp.config("dockerls", { capabilities = caps, on_attach = on_attach })
 			vim.lsp.config("yamlls", { capabilities = caps, on_attach = on_attach })
 			vim.lsp.config("marksman", { capabilities = caps, on_attach = on_attach })
+			vim.lsp.config("ts_ls", { capabilities = caps, on_attach = on_attach })
+			vim.lsp.config("html", { filetypes = { "html", "htm" }, capabilities = caps, on_attach = on_attach })
 		end,
 	},
 }

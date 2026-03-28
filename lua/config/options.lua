@@ -1,13 +1,10 @@
-local o, wo = vim.o, vim.wo
-o.termguicolors = true
-o.number = true
-wo.signcolumn = "yes"
-o.expandtab = true
-o.shiftwidth = 4
-o.tabstop = 4
-o.ignorecase = true
-o.smartcase = true
-o.clipboard = "unnamedplus"
-o.updatetime = 250
-o.splitbelow = true
-o.splitright = true
+local opt = vim.opt
+
+opt.tabstop = 4
+opt.shiftwidth = 4
+opt.softtabstop = 4
+opt.expandtab = true
+opt.number = true
+opt.relativenumber = true
+opt.fillchars = { eob = " " }
+vim.wo.signcolumn = "yes"

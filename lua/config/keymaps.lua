@@ -1,40 +1,18 @@
-local map = vim.keymap.set
+local remap = vim.keymap.set
+local tele_builtin = require('telescope.builtin')
+local harpoon = require("harpoon")
 
-map("n", "<leader>q", "<cmd>q<cr>")
-map("n", "<leader>w", "<cmd>w<cr>")
+remap("n", "<leader>ff", tele_builtin.find_files)
+remap('n', '<leader>fg', tele_builtin.live_grep, { desc = 'Telescope live grep' })
+remap('n', '<leader>fh', tele_builtin.help_tags, { desc = 'Telescope help tags' })
 
--- Files / search
-map("n", "<leader>e", "<cmd>Oil<cr>", { desc = "File Explorer (oil)" })
-map("n", "<leader>ff", "<cmd>Telescope find_files<cr>", { desc = "Find files" })
-map("n", "<leader>fg", "<cmd>Telescope live_grep<cr>", { desc = "Grep" })
-map("n", "<leader>fb", "<cmd>Telescope buffers<cr>", { desc = "Buffers" })
-map("n", "<leader>fh", "<cmd>Telescope help_tags<cr>", { desc = "Help" })
+harpoon:setup()
 
--- Git / terminal / diagnostics
-map("n", "<leader>gg", "<cmd>LazyGit<cr>", { desc = "LazyGit" })
-map("n", "<leader>tt", "<cmd>ToggleTerm<cr>", { desc = "Terminal" })
-map("n", "<leader>xx", "<cmd>Trouble diagnostics toggle<cr>", { desc = "Diagnostics (Trouble)" })
+remap("n", "<leader>ha", function() harpoon:list():add() end)
+remap("n", "<leader>hh", function() harpoon.ui:toggle_quick_menu(harpoon:list()) end)
+remap("n", "<leader>hn", function() harpoon:list():prev() end)
+remap("n", "<leader>hp", function() harpoon:list():next() end)
 
--- LSP
-map("n", "<leader>rn", vim.lsp.buf.rename, { desc = "LSP Rename" })
-map({ "n", "v" }, "<leader>ca", vim.lsp.buf.code_action, { desc = "LSP Code Action" })
-map("n", "gd", vim.lsp.buf.definition, { desc = "Go to definition" })
-map("n", "K", vim.lsp.buf.hover, { desc = "Hover" })
+-- remap("n", "<leader>fb", vim.cmd("Ex"))
 
--- Format
-map("n", "<leader>lf", function()
-	require("conform").format({ async = true })
-end, { desc = "Format" })
-
--- QoL
-map("n", "<leader>s", [[:%s/\s\+$//e<cr>]], { desc = "Strip trailing spaces" })
-
--- Neotree
-
--- Focus the sidebar (or open it if closed)
-map("n", "<leader>nf", function()
-	require("neo-tree.command").execute({ action = "focus", source = "filesystem", position = "left" })
-end, { desc = "Neo-tree: focus sidebar" })
-
--- Reveal current file in the sidebar (and focus it)
-map("n", "<leader>fE", "<cmd>Neotree reveal left<cr>", { desc = "Neo-tree: reveal current file" })
+remap("n", "<leader>fe", "<Cmd>Neotree<CR>")

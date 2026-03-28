@@ -1,10 +1,10 @@
 return {
-  { "nvim-lua/plenary.nvim" },
-  {
-    "nvim-telescope/telescope.nvim",
-    opts = {
-      defaults = { layout_config = { prompt_position = "top" }, sorting_strategy = "ascending" },
-      pickers = { find_files = { hidden = true } },
-    },
-  },
+    {
+        'nvim-telescope/telescope.nvim', version = '*',
+        dependencies = {
+            'nvim-lua/plenary.nvim',
+            -- optional but recommended
+            { 'nvim-telescope/telescope-fzf-native.nvim', build = 'make' },
+        }
+    }
 }
